@@ -5,6 +5,27 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 require('./app_api/models/db');
+var uglifyJs = require("uglify-js");//PARA MINIFICAR LOS ARCHIVOS ANGULAR
+var fs = require('fs');
+
+var appClientFiles = [
+'app_client/app.js',
+'app_client/home/home.controller.js',
+'app_client/common/services/geolocation.service.js',
+'app_client/common/services/loc8rData.service.js',
+'app_client/common/filters/formatDistance.filter.js',
+'app_client/common/directives/ratingStars/ratingStars.directive.js'
+];
+
+var uglified = uglifyJs.minify(appClientFiles, { compress : false });
+
+fs.writeFile('public/Angular/loc8r.min.js', uglified.code, function (err){
+  if(err) {
+    console.log(err);
+  } else {
+    console.log("Script generated and saved:", 'loc8r.min.js');
+  }
+});
 
 var routes = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
@@ -23,6 +44,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'app_client')));//PARA AGREGAR EL ANGULAR
 
 app.use('/', routes);
 app.use('/api', routesApi);//ESPECIFICA QUE SE USARA /API PARA LAS PETICIONES GET POST DELETE
