@@ -1,22 +1,25 @@
-##LOC8R
+# LOC8R
 
 Aplicacion de libro MEAN
 
-##INSTALACION
-Obtén el codigo de Sqte manera:
+## INSTALACION
+1. Obtén el codigo de Sqte manera:
+```
+$ git clone https://github.com/kevinxpt27/loc8r.git
+```
 
-`$ git clone https://github.com/kevinxpt27/loc8r.git`
+2. Ingrese a la carpeta loc8r:
+```
+$ cd loc8r
+```
 
-Ingrese a la carpeta loc8r:
+3. Instala las dependencias. Ejecuta  en tu terminal:
+```
+npm install
+```
 
-`$ cd loc8r`
-
-Las dependencias ya estan instaladas. si deseas ejecutas  en tu terminal:
-
-`npm install`
-
-Finalmente crea un archivo con el nombre ".env" (sin las commillas) y agrega es te codigo:
+4. Finalmente crea un archivo con el nombre `.env`  y agrega este codigo en el archivo:
 
 `JWT_SECRET=EscribeCualquierPalabra`
 
-Disfrutalo!
+5. Disfrutalo!
