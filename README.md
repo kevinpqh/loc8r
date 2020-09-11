@@ -2,7 +2,7 @@
 
 Aplicacion de libro MEAN
 
-## INSTALACION
+## Instalación
 1. Obtén el codigo de Sqte manera:
 ```
 $ git clone https://github.com/kevinxpt27/loc8r.git
@@ -20,6 +20,8 @@ npm install
 
 4. Finalmente crea un archivo con el nombre `.env`  y agrega este codigo en el archivo:
 
-`JWT_SECRET=EscribeCualquierPalabra`
+```
+JWT_SECRET=EscribeCualquierPalabra
+```
 
 5. Disfrutalo!
